@@ -1,0 +1,14 @@
+
+<h1>Seleccione el usuario a eliminar</h1>
+
+<form >
+  <div class="form-group">
+    <select [(ngModel)]="id" name="id" *ngFor="let usuario of usuarios"  class="form-control">
+      <option value="{{ u.id }}" *ngFor="let u of usuario.usuarios">{{ u.nombre }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+      <button (click)="eliminar()" class="btn btn-primary">Eliminar usuario</button>
+  </div>
+</form>
+  

@@ -1,0 +1,57 @@
+<h1>Por favor, rellena todos los campos</h1>
+
+<form class="col-10" #form="ngForm">
+  <div class="form-row">
+    <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="nombre" required minlength="4" name="nombre" #n="ngModel">
+    <div *ngIf="n.invalid && (n.dirty || n.touched)"
+    class="alert alert-danger">
+      <div *ngIf="n.errors.required">
+        El nombre es requerido.
+      </div>
+      <div *ngIf="n.errors.minlength">
+        El nombre debe ser de mínimo 4 caractéres.
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <input type="mail" class="form-control" placeholder="Telefono" [(ngModel)]="telefono" required minlength="4" name="telefono" #t="ngModel">
+    <div *ngIf="t.invalid && (t.dirty || t.touched)"
+    class="alert alert-danger">
+      <div *ngIf="t.errors.required">
+        El teléfono es requerido.
+      </div>
+      <div *ngIf="t.errors.minlength">
+        El teléfono debe ser un teléfono válido.
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <input type="text" class="form-control" placeholder="Direccion" [(ngModel)]="direccion" required minlength="4" name="direccion" #d="ngModel">
+    <div *ngIf="d.invalid && (d.dirty || d.touched)"
+    class="alert alert-danger">
+      <div *ngIf="d.errors.required">
+      La dirección es requerida.
+      </div>
+      <div *ngIf="d.errors.minlength">
+        La dirección debe ser de mínimo 4 caractéres.
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <input type="mail" class="form-control" placeholder="e-mail" [(ngModel)]="email" required minlength="4" email name="email" #c="ngModel">
+    <div *ngIf="c.invalid && (c.dirty || c.touched)"
+    class="alert alert-danger">
+      <div *ngIf="c.errors.required">
+        El correo es requerido.
+      </div>
+      <div *ngIf="c.errors.minlength">
+        El nombre debe ser de mínimo 4 caractéres y un correo válido.
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-auto my-1">
+      <button type="btn" class="btn btn-primary" (click)="agregarUsuario()" [disabled]="!form.form.valid" >Agregar</button>
+    </div>
+  </div>
+</form>
